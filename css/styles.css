@@ -336,3 +336,33 @@ footer {
         transform: none;
     }
 }
+
+/* GitHub Repositories Section */
+
+#github-projects {
+    background-color: #edf2f7;
+    text-align: center;
+}
+
+#github-projects h2 {
+    font-size: 2rem;
+}
+
+#github-projects .project-card {
+    text-align: left;
+}
+
+#github-projects .project-card a {
+    color: #315f8c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#github-projects .project-card a:hover {
+    text-decoration: underline;
+}
+
+#github-status {
+    margin-top: 20px;
+    color: #65717e;
+}
