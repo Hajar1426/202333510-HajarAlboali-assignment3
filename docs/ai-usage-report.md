@@ -113,7 +113,7 @@ The AI evidence is organized for separate submission through Blackboard as:
 
 The evidence includes:
 
-- `conversations/` — complete, unedited AI conversations.
+- `conversations/` — note that i couldn't include the whole conversation because it is old, thought it is unedited AI conversations.
 - `artifacts/` — original AI-generated code suggestions and documentation drafts before modifications.
 
 The evidence ZIP and conversation logs will not be committed to the public GitHub repository.
