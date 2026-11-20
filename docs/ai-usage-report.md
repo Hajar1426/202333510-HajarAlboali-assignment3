@@ -1,110 +1,119 @@
-# AI Usage Report — Assignment 2
+# AI Usage Report — Assignment 3
 
 ## 1. Introduction
 
-This report documents how I used artificial intelligence tools while developing my interactive personal portfolio website for SWE 363 Assignment 2.
+This report documents my use of artificial intelligence during SWE 363 Assignment 3 — Advanced Functionality.
 
-The website builds upon my Assignment 1 portfolio by adding dynamic project searching, improved contact form feedback, and CSS animations.
+The assignment builds upon my previous portfolio website by adding GitHub API integration, combined project filtering and sorting, persistent theme management, and performance improvements.
 
-AI was used to assist with development, debugging, explanations, and documentation.
+ChatGPT was used to assist with code generation, explanations, debugging, testing guidance, and documentation.
 
-## 2. AI Tools Used
+## 2. AI Tools Used and Use Cases
 
-**Tool:** ChatGPT  
-**Model:** GPT-6  
-**Purpose:** Code suggestions, debugging, explanations, and documentation assistance.
+**AI Tool:** ChatGPT  
+**Model:** GPT-6
 
 I used ChatGPT for the following tasks:
 
-- Understanding the Assignment 2 requirements and organizing the development process.
-- Setting up the Assignment 2 GitHub repository using my Assignment 1 portfolio.
-- Troubleshooting Git and GitHub authentication issues.
-- Adding a live project search feature using JavaScript.
-- Improving contact form feedback and validation.
-- Adding CSS hover animations to project cards.
-- Explaining JavaScript event listeners and dynamic content updates.
-- Reviewing the website's functionality and responsive behavior.
+- Understanding the Assignment 3 requirements and organizing the development process.
+- Creating and connecting the Assignment 3 GitHub repository.
+- Implementing the GitHub REST API using JavaScript `fetch()` and `async/await`.
+- Adding loading, empty-state, and error messages for API requests.
+- Combining project searching and sorting using JavaScript.
+- Implementing persistent light/dark mode using `localStorage`.
+- Adding responsive dark-mode styling.
+- Improving performance using lazy-loaded images.
+- Adding an SEO meta description.
+- Understanding and interpreting Google Chrome Lighthouse results.
+- Fixing the appearance of the SQL project image in dark mode.
 - Preparing technical documentation and README content.
-- Troubleshooting a GitHub documentation link that contained an extra space in the filename.
 
 ## 3. Benefits and Challenges
 
 ### Benefits
 
-ChatGPT helped me break down a long assignment into smaller, manageable steps.
+ChatGPT helped me divide a long assignment into smaller, manageable steps and understand the implementation of advanced JavaScript features.
 
-It provided explanations and code suggestions that helped me understand how to add new interactive features to my existing website.
+The GitHub API integration was especially useful because it introduced me to asynchronous programming and retrieving data from an external service.
 
-The live project search was especially useful because it introduced me to dynamically filtering HTML elements based on user input.
+I also learned how to combine project filtering and sorting so that multiple user inputs affect the displayed content.
 
-AI also helped me troubleshoot GitHub issues and improve the user experience of the contact form.
+ChatGPT helped me implement state management using `localStorage`, allowing the website to remember the visitor's selected theme.
 
 ### Challenges
 
-One challenge was connecting my existing IntelliJ project to the new GitHub repository. I encountered Git authentication errors and needed to use IntelliJ's GitHub integration to push the project successfully.
+One challenge was connecting and pushing my Assignment 3 project to GitHub. I needed to troubleshoot the Git setup and verify that the correct repository was connected.
 
-Another challenge involved a broken link to the technical documentation on GitHub. The problem was caused by an extra space at the end of the filename, which appeared as `%20` in the URL.
+Another challenge was the appearance of the SQL project image in dark mode because its background did not blend with the darker project card.
 
-These experiences showed me the importance of testing and verifying AI suggestions instead of assuming they will always work immediately.
+I also needed to test the suggested code carefully to make sure the new features did not break functionality from previous assignments.
+
+These challenges demonstrated the importance of reviewing and testing AI-generated suggestions.
 
 ## 4. Learning Outcomes
 
-During this assignment, I learned how to:
+During Assignment 3, I learned how to:
 
-- Use JavaScript event listeners to respond to user input.
-- Filter project cards dynamically using JavaScript.
-- Show an empty-state message when no projects match a search.
-- Improve contact form feedback without a backend.
-- Apply CSS transitions and hover effects.
-- Support reduced-motion preferences.
-- Use Git and GitHub to manage project changes.
-- Debug Git authentication and file path issues.
-- Test interactive features across different browsers and screen sizes.
+- Fetch data from an external REST API.
+- Use `async/await` for asynchronous JavaScript operations.
+- Handle API responses and errors using `try...catch`.
+- Dynamically create HTML elements using JavaScript.
+- Combine filtering and sorting using array methods.
+- Use conditional logic to control application behavior.
+- Save and retrieve user preferences using `localStorage`.
+- Implement light/dark mode using CSS classes.
+- Optimize image loading using `loading="lazy"`.
+- Improve SEO using a meta description.
+- Evaluate website quality using Google Chrome Lighthouse.
 
 ## 5. Responsible AI Use and Modifications
 
-I used ChatGPT as a development assistant and reviewed the suggested changes before incorporating them into my project.
+I reviewed AI-generated suggestions before incorporating them into my portfolio and tested the features after implementation.
 
-I tested the live project search using different keywords, including searches that produced no results.
+For the GitHub API, I verified that my public repositories appeared correctly and that the repository links worked.
 
-I also tested the contact form with empty fields, invalid email addresses, and valid inputs.
+For project filtering and sorting, I tested different search keywords, alphabetical sorting options, and combinations of both features.
 
-For the animation feature, I checked that the project cards moved smoothly when hovered over.
+I tested the light/dark mode toggle and verified that the selected preference remained active after refreshing the website.
 
-I tested the website in Safari and Google Chrome and checked its responsive layout at different screen sizes.
+I also identified and fixed a visual issue involving the SQL image in dark mode.
 
-The AI-assisted changes were incorporated into my existing portfolio, and I verified their behavior before committing them to GitHub.
+For performance optimization, I checked the image file sizes, added lazy loading, and used Lighthouse to evaluate the website.
+
+AI was used as a development assistant, while I reviewed, integrated, tested, and adjusted the suggestions.
 
 ## 6. AI Usage Log
 
-The following table documents my use of ChatGPT during Assignment 2. C01 refers to the complete ChatGPT conversation, while A01–A06 refer to the original AI-generated artifacts included in the evidence ZIP.
+The following entries document the AI assistance used during Assignment 3. C01 represents the complete conversation evidence, while A01–A07 represent the original AI-generated artifacts.
 
 | ID | Tool (Model) | Date | Purpose | Files Affected | What I Changed and How I Verified It |
 |---|---|---|---|---|---|
-| C01 | ChatGPT (GPT-6) | 2026-10-19 | Step-by-step guidance for Assignment 2, including GitHub setup, coding, debugging, testing, and documentation | Multiple project files | Followed the guidance, implemented the features, and tested the website in Safari and Chrome. |
-| A01 | ChatGPT (GPT-6) | 2026-10-19 | Generate live project search functionality | index.html, js/script.js, css/styles.css | Integrated the suggested code and tested matching keywords, nonmatching keywords, and clearing the search. |
-| A02 | ChatGPT (GPT-6) | 2026-10-19 | Improve contact form feedback | index.html, js/script.js, css/styles.css | Replaced the alert with an inline confirmation and tested required fields, email validation, and successful submission. |
-| A03 | ChatGPT (GPT-6) | 2026-10-19 | Add hover animations and reduced-motion support | css/styles.css | Added the CSS transitions and verified the hover effect in the browser. |
-| A04 | ChatGPT (GPT-6) | 2026-10-19 | Generate technical documentation | docs/technical-documentation.md | Reviewed the document and corrected the filename issue before verifying the GitHub link. |
-| A05 | ChatGPT (GPT-6) | 2026-10-19 | Generate Assignment 2 README | README.md | Added the README, reviewed its content, and verified the documentation links. |
-| A06 | ChatGPT (GPT-6) | 2026-10-19 | Generate the AI usage report | docs/ai-usage-report.md | Reviewed the report and updated the usage log to match the evidence files. |
+| C01 | ChatGPT (GPT-6) | 2026-11-20 | Step-by-step guidance for Assignment 3, including setup, implementation, debugging, testing, and documentation | Multiple files | Followed the development steps and tested the completed features in Safari and Chrome. |
+| A01 | ChatGPT (GPT-6) | 2026-11-20 | Generate GitHub API integration | index.html, js/script.js, css/styles.css | Integrated the code and verified that four public repositories appeared. |
+| A02 | ChatGPT (GPT-6) | 2026-11-20 | Generate combined project filtering and sorting | index.html, js/script.js, css/styles.css | Tested searching, sorting, combined operations, and empty results. |
+| A03 | ChatGPT (GPT-6) | 2026-11-20 | Generate persistent light/dark mode | index.html, js/script.js, css/styles.css | Tested theme switching and persistence after refreshing. |
+| A04 | ChatGPT (GPT-6) | 2026-11-20 | Suggest performance and SEO improvements | index.html | Added lazy loading and a meta description, then verified Lighthouse results. |
+| A05 | ChatGPT (GPT-6) | 2026-11-20 | Generate technical documentation | docs/technical-documentation.md | Reviewed and committed the documentation. |
+| A06 | ChatGPT (GPT-6) | 2026-11-20 | Generate Assignment 3 README | README.md | Reviewed and committed the README. |
+| A07 | ChatGPT (GPT-6) | 2026-11-20 | Generate AI usage report | docs/ai-usage-report.md | Reviewed the report and matched the entries to the prepared evidence artifacts. |
+
 ## 7. AI Usage Declaration
 
 **Student Name:** Hajar Alboali  
 **Student ID:** 202333510  
-**Date:** 2026-10-19
+**Date:** 2026-11-20
 
-I declare that this report and the attached evidence document all of my AI use in this assignment, with complete and unedited conversations, and that I understand and can explain all the code I submitted.
+I declare that this report and the attached evidence document all of my AI use in this assignment, with complete and unedited conversations, and that I understand and can explain all the code I submitted. I understand that undeclared AI use or a false declaration will be treated as plagiarism according to KFUPM regulations.
 
 ## 8. AI Evidence
 
 The AI evidence is organized for separate submission through Blackboard as:
 
-`202333510-HajarAlboali-assignment2-ai-evidence.zip`
+`202333510-HajarAlboali-assignment3-ai-evidence.zip`
 
-The ZIP must contain:
+The evidence includes:
 
 - `conversations/` — complete, unedited AI conversations.
-- `artifacts/` — original AI-generated artifacts before my modifications.
+- `artifacts/` — original AI-generated code suggestions and documentation drafts before modifications.
 
-The AI evidence ZIP and conversation logs will not be committed to the public GitHub repository.
+The evidence ZIP and conversation logs will not be committed to the public GitHub repository.
