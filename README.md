@@ -1,65 +1,83 @@
-# Hajar Alboali — Interactive Personal Portfolio
+# Hajar Alboali — Advanced Personal Portfolio
 
-## SWE 363 — Assignment 2: Interactive Features
+## SWE 363 — Assignment 3: Advanced Functionality
 
-### Project Description
+## Project Description
 
-This project is an interactive and responsive personal portfolio website developed for SWE 363 Assignment 2.
+This project is an advanced, responsive personal portfolio website developed for SWE 363 Assignment 3.
 
-It builds upon Assignment 1 by adding dynamic project searching, improved contact form feedback, and interactive animations.
+It builds upon Assignments 1 and 2 by introducing external API integration, advanced JavaScript logic, persistent state management, and performance optimization.
 
-The website introduces me as a Software Engineering student, showcases my university projects, and provides visitors with ways to contact me.
+The website introduces me as a Software Engineering student, showcases my university projects, and dynamically displays my public GitHub repositories.
 
 ## Features
 
 ### 1. About Me
+
 A personal introduction describing my academic background and interests.
 
 ### 2. Projects
-Displays two university projects:
+
+The portfolio presents two university projects:
 
 - **Database Management System:** A relational database developed using SQL and integrated with Java.
-- **Interactive Star Game:** A Java-based game where players match the ball with the corresponding color of a multicolored star.
+- **Interactive Star Game:** A Java game where players match a ball with the corresponding color of a multicolored star.
 
 Each project includes an image, title, and description.
 
-### 3. Live Project Search
-Visitors can search for projects by typing keywords.
+### 3. Project Search and Sorting
 
-- Matching projects appear automatically.
-- Nonmatching projects are hidden.
-- A message appears when no projects match the search.
-- Clearing the search restores all projects.
+Visitors can search for projects using keywords and sort the results by:
 
-### 4. Contact Form
-Visitors can enter their name, email, and message.
+- Default Order
+- Name (A–Z)
+- Name (Z–A)
 
-The form includes:
-- Required field validation.
-- Email format validation.
-- A confirmation message after valid submission.
-- Automatic clearing of the form fields.
+Search and sorting work together. If no projects match the search, a helpful message is displayed.
 
-**Note:** The form is a demonstration only. No messages are sent or stored because the website does not have a backend.
+### 4. GitHub API Integration
 
-### 5. Animations
-Project cards include smooth hover transitions with a subtle movement and shadow.
+The website retrieves public repositories from my GitHub account using the GitHub REST API.
 
-### 6. Responsive Design
-The website adapts to desktop, tablet, and mobile screen sizes using CSS Flexbox, Grid, and media queries.
+Each repository card displays its name, description, and a link to GitHub.
+
+The application also provides loading, empty-state, and error messages.
+
+### 5. Light/Dark Mode
+
+Visitors can switch between light and dark themes.
+
+The selected preference is saved using JavaScript `localStorage`, so the theme remains active after refreshing or reopening the website in the same browser.
+
+### 6. Contact Form
+
+The contact form includes Name, Email, and Message fields.
+
+HTML validation checks required fields and email format. JavaScript displays a confirmation message after a valid submission.
+
+**Note:** This is a front-end demonstration. No messages are sent or stored because the website does not use a backend.
+
+### 7. Responsive Design and Animations
+
+The website supports desktop, tablet, and mobile layouts using CSS Flexbox, Grid, and media queries.
+
+Project cards include smooth hover effects, and the website supports reduced-motion preferences.
 
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
+- GitHub REST API
+- Web Storage API (`localStorage`)
 - Git and GitHub
 - IntelliJ IDEA
+- Google Chrome Lighthouse
 
 ## Project Structure
 
 ```text
-202333510-HajarAlboali-assignment2/
+202333510-HajarAlboali-assignment3/
 ├── index.html
 ├── css/
 │   └── styles.css
@@ -76,62 +94,92 @@ The website adapts to desktop, tablet, and mobile screen sizes using CSS Flexbox
 
 ## How to Run Locally
 
-No additional software packages or dependencies are required.
+No additional packages or frameworks are required.
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Hajar1426/202333510-HajarAlboali-assignment2.git
+   git clone https://github.com/Hajar1426/202333510-HajarAlboali-assignment3.git
    ```
 
-2. Open the downloaded project folder.
+2. Open the downloaded folder in IntelliJ IDEA or another code editor.
 
-3. Open `index.html` in Safari, Google Chrome, or another modern web browser.
+3. Open `index.html` using a local development server, such as IntelliJ's built-in web server.
 
-4. Explore the portfolio and try the interactive features.
+4. View the website in Safari, Google Chrome, or another modern browser.
 
-## How to Test the Interactive Features
+**Note:** The GitHub repository section requires an internet connection to retrieve API data.
 
-**Project Search**
+## How to Test the Features
 
-1. Navigate to the Projects section.
-2. Enter `SQL` to display the database project.
-3. Enter `Star` to display the Java game.
-4. Enter `Python` to display the no-results message.
-5. Clear the search field to display both projects again.
+### GitHub API
 
-**Contact Form**
+1. Open the portfolio and scroll to My GitHub Repositories.
+2. Confirm that public repositories appear.
+3. Click a repository link to verify it opens correctly.
+4. Disable the network temporarily to test the API error message.
 
-1. Navigate to the Contact section.
-2. Try submitting empty fields to observe the validation.
-3. Enter an invalid email to test email validation.
-4. Complete all fields with valid information.
-5. Submit the form to display the confirmation message.
+### Project Search and Sorting
 
-**Animations**
+1. Search for `SQL` to display the database project.
+2. Search for `Star` to display the Java game.
+3. Search for `Python` to display the no-results message.
+4. Select Name (Z–A) to reverse the alphabetical order.
+5. Clear the search and select Default Order to restore the original layout.
 
-Move the mouse over a project card to observe its hover effect.
+### Light/Dark Mode
 
-## Browser Compatibility and Testing
+1. Click Dark Mode to change the website appearance.
+2. Refresh the page and verify the dark theme remains active.
+3. Click Light Mode to restore the original appearance.
 
-The website was tested successfully in:
+### Contact Form
+
+1. Submit the form with empty fields to check validation.
+2. Enter an invalid email to test email format validation.
+3. Submit valid information and verify the confirmation message appears.
+
+## Performance Optimization
+
+The website uses lightweight HTML, CSS, and JavaScript without additional frameworks.
+
+Project images use lazy loading, and their file sizes were checked to avoid unnecessarily large resources.
+
+A meta description was added to improve search engine optimization.
+
+### Lighthouse Results
+
+The website was tested locally using Google Chrome Lighthouse.
+
+| Category | Mobile | Desktop |
+|---|---:|---:|
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+Results may vary depending on the testing environment and network conditions.
+
+## Browser Compatibility
+
+The website was tested in:
 
 - Safari
 - Google Chrome
 
-The responsive layout was also tested at different browser widths representing desktop, tablet, and mobile devices.
+Responsive behavior was also tested at different screen widths representing desktop, tablet, and mobile devices.
 
 ## AI Integration
 
-ChatGPT (GPT-6) was used to assist with code suggestions, debugging, explanations, responsive design, and documentation.
+ChatGPT (GPT-6) was used to assist with code suggestions, explanations, debugging, performance improvements, and documentation.
 
-AI-generated suggestions were reviewed, implemented, and tested during development.
+AI-assisted changes were reviewed and tested before being incorporated into the project.
 
-Detailed AI usage documentation is available in [AI Usage Report](docs/ai-usage-report.md).
+Detailed AI documentation is available in the [AI Usage Report](docs/ai-usage-report.md).
 
 ## Technical Documentation
 
-Further implementation details are available in [Technical Documentation](docs/technical-documentation.md).
+Implementation details are available in the [Technical Documentation](docs/technical-documentation.md).
 
 ## Author
 
@@ -139,4 +187,4 @@ Further implementation details are available in [Technical Documentation](docs/t
 
 Software Engineering Student
 
-SWE 363 — Assignment 2
+SWE 363 — Assignment 3
