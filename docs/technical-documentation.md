@@ -1,25 +1,28 @@
-# Technical Documentation — Assignment 2
+# Technical Documentation — Assignment 3
 
 ## 1. Project Overview
 
-This project is an interactive and responsive personal portfolio website developed for SWE 363 Assignment 2.
+This project is an advanced personal portfolio website developed for SWE 363 Assignment 3.
 
-The website builds upon Assignment 1 by adding dynamic content, improved form feedback, and animations to enhance the user experience.
+It builds upon Assignments 1 and 2 by introducing external API integration, advanced JavaScript logic, state management, and performance optimization.
 
-The portfolio introduces me as a Software Engineering student, showcases my previous projects, and provides visitors with ways to contact me.
+The website introduces me as a Software Engineering student, showcases my university projects, and dynamically displays my public GitHub repositories.
 
 ## 2. Technologies Used
 
 - **HTML5:** Website structure and content.
-- **CSS3:** Styling, responsive layouts, and animations.
-- **JavaScript:** Dynamic content, form handling, and user interactions.
+- **CSS3:** Styling, responsive layouts, dark mode, and animations.
+- **JavaScript:** Dynamic content, filtering, sorting, API integration, and state management.
+- **GitHub REST API:** Fetching public repository information.
+- **localStorage:** Saving the visitor's selected theme.
 - **Git and GitHub:** Version control and repository management.
-- **IntelliJ IDEA:** Development environmentt.
+- **IntelliJ IDEA:** Development environment.
+- **Google Chrome Lighthouse:** Performance and quality testing.
 
 ## 3. Project Structure
 
 ```text
-202333510-HajarAlboali-assignment2/
+202333510-HajarAlboali-assignment3/
 ├── index.html
 ├── css/
 │   └── styles.css
@@ -45,146 +48,183 @@ Introduces me as a Software Engineering student and provides information about m
 Displays two university projects:
 
 1. **Database Management System:** A relational database developed using SQL and integrated with Java.
-2. **Interactive Star Game:** An interactive game developed entirely in Java.
+2. **Interactive Star Game:** A Java game where players match the ball with the corresponding color of a multicolored star.
 
 Each project includes an image, title, and description.
 
+### GitHub Repositories
+
+Dynamically displays public repositories fetched from my GitHub account.
+
 ### Contact
 
-Provides contact information and a form containing Name, Email, and Message fields.
+Provides my contact information and a form containing Name, Email, and Message fields.
 
-## 5. Dynamic Content — Live Project Search
+## 5. External API Integration
 
-A live search feature was added to the Projects section using JavaScript.
+The website integrates the GitHub REST API to retrieve public repository information.
 
-Visitors can type keywords into the search field to filter the displayed project cards.
+**API endpoint:**
 
-The feature works by:
+`https://api.github.com/users/Hajar1426/repos?sort=updated&per_page=6`
 
-1. Detecting input using the JavaScript `input` event.
-2. Converting the search text to lowercase.
-3. Comparing the entered text with the project cards' content.
-4. Showing matching projects and hiding nonmatching projects.
-5. Displaying a message when no projects match the search.
+The API integration uses:
 
-For example:
+- `fetch()` to request data.
+- `async/await` to handle asynchronous operations.
+- `response.ok` to verify successful responses.
+- `response.json()` to convert the response into JavaScript objects.
+- DOM manipulation to dynamically create repository cards.
 
-- Searching for `SQL` displays the Database Management System project.
-- Searching for `Star` displays the Interactive Star Game project.
-- Searching for `Python` displays a message indicating that no projects were found.
+Each repository card displays its name, description when available, and a link to the GitHub repository.
 
-This feature improves navigation and allows visitors to find relevant projects quickly.
+### API Error Handling
 
-## 6. Data Handling and Form Validation
+The website provides feedback for different API states:
 
-The website uses a contact form to demonstrate basic data handling with JavaScript.
+- **Loading:** Displays a message while repositories are being fetched.
+- **Success:** Displays the repository cards.
+- **Empty response:** Displays a message when no public repositories are available.
+- **Failure:** Displays a friendly error message when the API request fails.
 
-The form includes three required fields:
+This ensures visitors receive feedback instead of seeing an unexplained empty section.
+
+## 6. Complex Logic — Project Filtering and Sorting
+
+The Projects section supports both searching and sorting.
+
+Visitors can filter projects by keywords and choose between:
+
+- Default Order
+- Name (A–Z)
+- Name (Z–A)
+
+The JavaScript logic follows these steps:
+
+1. Read the search input and selected sorting option.
+2. Filter project cards based on matching text.
+3. Apply the selected sorting rule.
+4. Hide nonmatching projects.
+5. Reorder and display matching project cards.
+6. Display a message when no projects match the search.
+
+The implementation uses JavaScript array methods such as `filter()` and `sort()`, conditional statements, and `localeCompare()`.
+
+This demonstrates complex logic by combining multiple user inputs and operations.
+
+## 7. State Management — Light/Dark Mode
+
+The website includes a theme toggle that allows visitors to switch between light and dark appearances.
+
+JavaScript uses `classList.toggle()` to add or remove the `dark-mode` class from the page.
+
+The selected preference is saved using `localStorage.setItem()`.
+
+When the website is reopened or refreshed, `localStorage.getItem()` retrieves the previously selected theme and applies it automatically.
+
+The button text and `aria-pressed` attribute are updated to reflect the current theme.
+
+This demonstrates persistent state management across page reloads within the same browser and website origin.
+
+## 8. Contact Form and User Feedback
+
+The contact form contains three required fields:
 
 - Name
 - Email
 - Message
 
-HTML validation prevents submission when required fields are empty or when the email format is invalid.
+HTML validation checks that required fields are completed and the email follows a valid format.
 
-JavaScript listens for the form's `submit` event and prevents the default submission behavior using `event.preventDefault()`.
+JavaScript prevents the default form submission using `event.preventDefault()`.
 
-After valid submission:
+After valid submission, the website displays an inline confirmation and clears the form fields.
 
-1. A confirmation message appears on the webpage.
-2. The form fields are cleared.
+The form is a front-end demonstration. No messages are sent or stored because there is no backend.
 
-The website does not use a backend, so messages are not actually sent or stored.
+## 9. Animations and Responsive Design
 
-## 7. Error Handling and User Feedback
+The website uses CSS Flexbox, Grid, and media queries to adapt to desktop, tablet, and mobile screens.
 
-The website provides feedback for different user actions.
+Project cards include smooth hover transitions and shadows.
 
-**Project Search:**
+The website also supports reduced-motion preferences using the `prefers-reduced-motion` media query.
 
-When a search produces no matching projects, the website displays:
+Project images use `object-fit: contain` to remain fully visible across screen sizes.
 
-> No projects found. Try a different keyword.
+## 10. Performance Optimization
 
-**Contact Form:**
+Several techniques were used to improve website performance:
 
-- Empty required fields trigger browser validation.
-- Invalid email formats trigger browser validation.
-- Valid submissions display a confirmation message explaining that the form is a demonstration and no message was sent.
+- Added `loading="lazy"` to project images to defer offscreen image loading.
+- Checked image file sizes to avoid unnecessarily large resources.
+- Used lightweight HTML, CSS, and JavaScript without additional frameworks.
+- Kept CSS and JavaScript organized in separate files.
+- Added a meta description to improve SEO.
 
-These features help visitors understand the results of their actions.
+The two project images were checked and had approximate file sizes of:
 
-## 8. Animations and Transitions
+- SQL image: 16.6 KB
+- Java image: 47.4 KB
 
-CSS transitions were added to the project cards to improve the user experience.
+### Lighthouse Testing Results
 
-When a visitor hovers over a project card:
+Google Chrome Lighthouse was used to evaluate the website locally.
 
-- The card moves slightly upward.
-- A soft shadow appears.
-- The card smoothly returns to its original position when the mouse moves away.
+| Category | Mobile | Desktop |
+|---|---:|---:|
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
 
-The animation uses CSS properties including:
+The initial SEO score was 91 because the page was missing a meta description. After adding the meta description and rerunning Lighthouse, the SEO score improved to 100.
 
-- `transition`
-- `transform`
-- `box-shadow`
+These results reflect the local Lighthouse tests and may vary depending on the environment and network conditions.
 
-A `prefers-reduced-motion` media query is also included to reduce animation for visitors who prefer less motion.
+## 11. Functional Testing
 
-## 9. Responsive Design
+The website was tested using Safari and Google Chrome.
 
-The website uses CSS Flexbox, CSS Grid, and media queries to adapt to different screen sizes.
+The following features were verified:
 
-On larger screens, project cards appear side by side. On smaller screens, they stack vertically.
-
-The navigation layout and contact form also adapt to smaller screens.
-
-Project images use `object-fit: contain` to remain fully visible when the screen size changes.
-
-## 10. Testing
-
-The website was tested in Safari and Google Chrome.
-
-Responsive behavior was checked by resizing the browser window to represent desktop, tablet, and mobile screen sizes.
-
-The following features were tested successfully:
-
-- Navigation between website sections.
-- Live project filtering using different keywords.
-- Empty search results message.
-- Restoring all projects when the search field is cleared.
-- Required field validation.
-- Invalid email validation.
-- Contact form confirmation and reset.
-- Project card hover animations.
-- Responsive layouts and project images.
-- Browser compatibility in Safari and Chrome.
+- GitHub repositories load dynamically.
+- Repository links open correctly.
+- API failures display a friendly message.
+- Project searching works.
+- Project sorting works in both directions.
+- Searching and sorting work together.
+- Empty search results display feedback.
+- Light and dark themes switch correctly.
+- The selected theme remains active after refreshing.
+- Contact form validation and confirmation work.
+- Responsive layouts display correctly on different screen sizes.
 
 All tested features worked as expected.
 
-## 11. Code Organization and Quality
+## 12. Code Quality
 
-The project separates HTML, CSS, and JavaScript into different files.
+The project separates HTML, CSS, and JavaScript into logical files.
 
-The code uses meaningful element IDs, class names, and comments to improve readability.
+The JavaScript code uses meaningful variable names, functions, event listeners, and comments.
 
-The JavaScript functionality is organized around event listeners that respond to visitor actions.
+API data is displayed using DOM methods and `textContent` rather than inserting external text directly as HTML.
 
-The website uses lightweight front-end technologies without requiring additional frameworks or backend services.
+The application handles user interactions and API errors while maintaining a simple and readable code structure.
 
-## 12. Version Control
+## 13. Version Control
 
-Git and GitHub were used to manage the project.
+Git and GitHub were used throughout development.
 
-Assignment 1 was used as the foundation, and new features were added through separate development stages.
+Assignment 2 was used as the foundation for Assignment 3.
 
-Meaningful commits document changes such as:
+Separate commits were created for major changes, including:
 
-- Initializing Assignment 2 from Assignment 1.
-- Adding live project search functionality.
-- Improving contact form feedback.
-- Adding project card animations.
-- Updating project documentation.
+- Initializing Assignment 3.
+- Integrating the GitHub API.
+- Adding combined project filtering and sorting.
+- Implementing persistent theme preferences.
+- Optimizing performance and improving SEO.
+- Updating documentation.
 
-AI assistance is credited in relevant commit messages.
+AI-assisted code commits include an `Assisted-by: ChatGPT (GPT-6)` attribution.
