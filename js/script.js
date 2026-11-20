@@ -17,28 +17,64 @@ contactForm.addEventListener("submit", function (event) {
 });
 
 
-// Filter projects based on what the visitor types
+/* Search and sort portfolio projects */
+
 const searchInput = document.getElementById("project-search");
-const projectCards = document.querySelectorAll(".project-card");
+const sortSelect = document.getElementById("project-sort");
+const projectsContainer = document.querySelector("#projects .projects-container");
+const projectCards = Array.from(projectsContainer.querySelectorAll(".project-card"));
 const noResults = document.getElementById("no-results");
 
-searchInput.addEventListener("input", function () {
+// Save the original order of the project cards
+const originalOrder = [...projectCards];
+
+function updateProjects() {
     const searchText = searchInput.value.toLowerCase().trim();
-    let matches = 0;
+    const sortOrder = sortSelect.value;
 
-    projectCards.forEach(function (card) {
-        const projectText = card.textContent.toLowerCase();
-        const isMatch = projectText.includes(searchText);
-
-        card.hidden = !isMatch;
-
-        if (isMatch) {
-            matches++;
-        }
+    // Step 1: Filter projects using the search text
+    const matchingProjects = projectCards.filter(function (card) {
+        return card.textContent.toLowerCase().includes(searchText);
     });
 
-    noResults.hidden = matches > 0;
-});
+    // Step 2: Sort the matching projects
+    if (sortOrder === "az") {
+        matchingProjects.sort(function (a, b) {
+            return a.querySelector("h3").textContent.localeCompare(
+                b.querySelector("h3").textContent
+            );
+        });
+    } else if (sortOrder === "za") {
+        matchingProjects.sort(function (a, b) {
+            return b.querySelector("h3").textContent.localeCompare(
+                a.querySelector("h3").textContent
+            );
+        });
+    } else {
+        matchingProjects.sort(function (a, b) {
+            return originalOrder.indexOf(a) - originalOrder.indexOf(b);
+        });
+    }
+
+    // Step 3: Hide projects that do not match
+    projectCards.forEach(function (card) {
+        card.hidden = true;
+    });
+
+    // Step 4: Display matching projects in the selected order
+    matchingProjects.forEach(function (card) {
+        card.hidden = false;
+        projectsContainer.appendChild(card);
+    });
+
+    // Step 5: Show feedback if no projects match
+    noResults.hidden = matchingProjects.length > 0;
+}
+
+// Update whenever the visitor searches or changes sorting
+searchInput.addEventListener("input", updateProjects);
+sortSelect.addEventListener("change", updateProjects);
+
 
 
 /* Fetch and display public GitHub repositories */

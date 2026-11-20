@@ -366,3 +366,22 @@ footer {
     margin-top: 20px;
     color: #65717e;
 }
+
+
+/* Project sorting dropdown */
+
+#project-sort {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #bfc8d1;
+    border-radius: 8px;
+    background-color: white;
+    color: #333333;
+    font: inherit;
+}
+
+#project-sort:focus {
+    outline: 2px solid #315f8c;
+    outline-offset: 2px;
+}

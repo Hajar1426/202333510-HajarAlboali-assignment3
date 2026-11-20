@@ -48,20 +48,30 @@
         <!-- Projects Section -->
         <section id="projects">
             <h2>My Projects</h2>
-            <!-- Search projects -->
-            <div class="search-container">
-                <label for="project-search">Search My Projects</label>
 
+            <!-- Search and sort projects -->
+            <div class="search-container">
+
+                <label for="project-search">Search My Projects</label>
                 <input
                         type="search"
                         id="project-search"
                         placeholder="Search by project name or technology..."
                 >
 
+                <label for="project-sort">Sort Projects</label>
+                <select id="project-sort">
+                    <option value="default">Default Order</option>
+                    <option value="az">Name (A-Z)</option>
+                    <option value="za">Name (Z-A)</option>
+                </select>
+
                 <p id="no-results" hidden>
                     No projects found. Try a different keyword.
                 </p>
+
             </div>
+
 
             <div class="projects-container">
 
