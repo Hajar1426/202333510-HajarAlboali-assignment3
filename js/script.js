@@ -143,3 +143,37 @@ async function loadGitHubRepositories() {
 
 // Load repositories when the page opens
 loadGitHubRepositories();
+
+
+/* ---------- Light/Dark Theme Management ---------- */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+// Get the previously saved theme
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+// Apply the saved theme when the page loads
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "Light Mode";
+    themeToggle.setAttribute("aria-pressed", "true");
+}
+
+// Switch themes when the button is clicked
+themeToggle.addEventListener("click", function () {
+
+    // Toggle the dark-mode class
+    const isDarkMode = document.body.classList.toggle("dark-mode");
+
+    // Update the button and save the preference
+    if (isDarkMode) {
+        themeToggle.textContent = "Light Mode";
+        themeToggle.setAttribute("aria-pressed", "true");
+        localStorage.setItem("portfolio-theme", "dark");
+    } else {
+        themeToggle.textContent = "Dark Mode";
+        themeToggle.setAttribute("aria-pressed", "false");
+        localStorage.setItem("portfolio-theme", "light");
+    }
+});
+
