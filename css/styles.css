@@ -499,3 +499,6 @@ body.dark-mode .success-message {
     border-color: #43805b;
 }
 
+body.dark-mode .search-container label {
+    color: #a9cfff;
+}
